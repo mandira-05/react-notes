@@ -1,0 +1,31 @@
+video#5
+
+//functional componenets - are js functions
+//prpoerties ko react me props bolte
+//function components i/p me js functions leta h and o/p me html me deta h (JSX)
+
+video#6
+class components - receives props as i/p and gives o/p as html(JSX). class component maintain krta h info.(state) jo private h 
+
+2 types of components
+function components - are simple functions that recive props and return a declaration. try to use functional components only all the time.
+this keyword use krne kii zarurat nhi hogi q ki wo confusiong hoga, this functional me nhi chlta
+yaha pe state nhi h components k jo confuse krte h 
+functional comp me logics complex nhi hote bas UI k liye hi hota h 
+
+
+class components - 
+featrue jyada dete h, complex UI logic likh kste h , khudka private data(state) maintain kr skte h ,
+provides lifecycle hooks
+isko stateful/smart/container components b bolte h 
+
+video7
+
+new update in class and functional components
+
+hooks -
+is k wajah se state ab functional and class dono components me use kr skte h 
+
+
+
+

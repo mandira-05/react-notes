@@ -1,0 +1,29 @@
+//video 42 - useRef
+
+ye sirf functional componemt me hi use kr skte h 
+
+
+
+import './App.css';
+import React,{useRef} from 'react'
+function App() {
+  let inputRef=useRef(null);
+  function controlInput()
+  {
+  //  inputRef.current.value="abc"
+  // inputRef.current.style.display="none"
+  inputRef.current.focus()  //buttonclick k baad cursor fir se txt box me hi ata h
+  }
+  return (
+    <div className="App">
+      <h1>useRef in React </h1>
+      <input type="text" ref={inputRef} /> //jo variable ka properties chnge krna h usko ref me dala h ...aur us pe useRef use kia h
+      <button onClick={controlInput}>Handle Input</button>
+    </div>
+  );
+
+}
+
+export default App;
+
+

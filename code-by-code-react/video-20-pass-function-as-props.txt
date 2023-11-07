@@ -1,0 +1,64 @@
+
+import React,{useState} from 'react'
+import logo from './logo.svg';
+import './App.css';
+import User from './Components/User'
+import UserClassComponent from './Components/UserClassComponent'
+import UserJSX from './Components/UserJSX'
+import StateWithClassComponent from './Components/StateWithClassComponent'
+import Student from './Components/Student'
+import StudentWithClassComponent from './Components/StudentWithClassComponent'
+import StudentWithClassComponent1 from './Components/StudentWithClassComponent1'
+import Login from './Components/Login'
+import Video20 from './Components/User-video20'
+import Members from './Components/Members'
+
+//alert ("jjjjjdk")
+function App() {
+   function getData1() {
+
+    alert("hello from app");
+  }
+
+
+      <h1>video -20- pass function as props</h1>
+      <Video20 data={getData1}/>
+      <div style={{float:'right'}}>
+        <Members data={getData1}/>
+      </div>
+    </div> 
+  );
+}
+
+export default App;
+
+
+import React from 'react'
+
+function Video20(props) {
+	return (
+
+		<div>
+			<h1>User Component video 20</h1>
+			<button onClick={()=>props.data()}>call data function</button>
+		</div>
+	);
+}
+
+export default Video20;
+
+
+import React from 'react'
+
+function Members(props) {
+	return (
+
+		<div>
+			<h1>User Component video 20 aeeeaae</h1>
+			<button onClick={()=>props.data()}>call data function</button>
+		</div>
+	);
+}
+
+export default Members;
+

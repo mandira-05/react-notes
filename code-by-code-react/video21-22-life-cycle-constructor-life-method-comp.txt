@@ -1,0 +1,47 @@
+video-21 -life cycle of methods
+
+3 phase hote h -
+
+mount, update,unmounting
+
+
+video 22-
+
+constructor life cycle method
+
+constructor pehle banta h 
+
+jaise hi class component call hota h toh constructor hi pehle call hota h 
+
+render method ready hone k pehle hi constructor ready hota h 
+
+App.js
+
+
+import React from 'react'
+
+class App extends React.Component {
+
+	constructor () {
+		super();
+	}
+
+	render ()
+	{
+		return (
+			<h1>Hello World</h1>
+		)
+	}
+
+}
+
+export default App;
+
+Component class ko call krne k liye super() use krte h 
+
+consturctor me kabhi API call nhi krna chahiye
+
+we generally do not call our API in constructor() because API calling is time taking process so 
+during that time HTML is also not loaded and user see nothing, 
+so it is better to call API in componentDidMount() as it is invoked after render(), 
+also see that both constructor() and componentDidMount() are invoked only once when browser is loaded.

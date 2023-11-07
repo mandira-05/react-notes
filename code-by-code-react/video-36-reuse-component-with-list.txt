@@ -1,0 +1,125 @@
+video 36 - reuse component with list
+
+App.css
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+span {
+  padding: 10px;
+  background-color: #666;
+  font-size: 20px;
+  color: #fff;
+  line-height: 50px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+Emp-video36.js
+
+function Video36 (props)
+{
+	return(
+		<div>
+			<span>{props.data.name}</span>
+			<span>{props.data.email}</span>
+			<span>{props.data.contact}</span>
+		</div>
+
+	)
+}
+
+export default Video36;
+
+
+
+import React,{useState,useEffect} from 'react'
+import logo from './logo.svg';
+import './App.css';
+import User from './Components/User'
+import UserClassComponent from './Components/UserClassComponent'
+import UserJSX from './Components/UserJSX'
+import StateWithClassComponent from './Components/StateWithClassComponent'
+import Student from './Components/Student'
+import StudentWithClassComponent from './Components/StudentWithClassComponent'
+import StudentWithClassComponent1 from './Components/StudentWithClassComponent1'
+import Login from './Components/Login'
+import Video20 from './Components/User-video20'
+import Members from './Components/Members'
+import Video30 from './Components/User-video30-useEffect'
+import './style.css'
+
+import style from './custom.module.css'
+
+import {Button} from 'react-bootstrap'
+import {Table} from 'react-bootstrap'
+
+import Video36 from './Components/Emp-video36'
+
+//alert ("jjjjjdk")
+function App() {
+
+
+  const emp=[
+
+    {name:"mandira",email:"meow@gmail.com",contact:765},
+    {name:"nikita",email:"nikita@gmail.com",contact:754},
+    {name:"asta",email:"asta@gmail.com",contact:863},    
+    {name:"yuno",email:"yuno@gmail.com",contact:463} 
+  ]
+
+ 
+
+  return (
+    <div className="App">
+    
+      <h1>video 36 - reuse component with list</h1>
+      
+      {
+        emp.map((item,i)=>
+          
+          <Video36 data={item} />
+          )
+      }
+    </div> 
+  );
+}
+
+export default App;
+
+
+

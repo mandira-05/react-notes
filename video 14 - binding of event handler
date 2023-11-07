@@ -1,0 +1,12 @@
+video 14 - binding of event handler
+
+//this keyword w/o bind use kia dircetly to undefined dikhata h console me and goodbye display nhi krta 
+//line 35 first way h of event handling
+//line 36 2nd way h of event handling - using arraow functions - yaha event handler call kia h 
+//line 37 and constructor me this.clickHandler=this.clickHandler.bind(this)
+//3rd way h of bind event handler in a constructor
+//4th way - clcik handler ko as arrow fucntion likhna h and line 37 chalega
+
+//first and 2nd approach avoid krna h 
+
+//3rd apporach use krna h mostly

@@ -1,0 +1,12 @@
+//video 1
+
+//ways to create application
+//1 - npx create-react-app <project_name>
+//npx - npm packeage runner , which is installed when we install node
+
+//2- npm 
+2 setps - 
+//npm install create-react-app -g
+//create-react-app<project_name>
+//here we first install package globally and then use package to genrate projects
+

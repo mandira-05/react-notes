@@ -1,0 +1,15 @@
+video 11- setState
+
+directly koi b componnt ka state chnge nhi kr skte h directly
+react render nhi krta pata h 
+islye setState use krte h 
+
+
+
+	{/*ui pe value chnge nhi hora tha toh setstate use kia h */}
+
+jab koi code ko execute krna ...state update k baad toh us code ko callback function jaise pass krna setState method me as a second arguemnt
+
+jab state ko update krna based ko previous state ka value toh,
+usko as a function pass krna as a arguemnt instead of regular object
+

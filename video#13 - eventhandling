@@ -1,0 +1,13 @@
+video#13
+
+handling events in react
+
+event handling diffrenet h thoda react me
+
+<button onClick={clickHandler}>Click</button>
+
+line me clickHandler (as a function only) dalna h clickHandler() nhi..function call nhi krna h 
+
+
+camelcase me likhte h event
+

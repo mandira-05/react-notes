@@ -1,0 +1,73 @@
+//video 17
+
+
+txt ko hide show kena h ..2 button bana k
+
+
+import React,{useState} from 'react'
+import logo from './logo.svg';
+import './App.css';
+import User from './Components/User'
+import UserClassComponent from './Components/UserClassComponent'
+import UserJSX from './Components/UserJSX'
+import StateWithClassComponent from './Components/StateWithClassComponent'
+import Student from './Components/Student'
+import StudentWithClassComponent from './Components/StudentWithClassComponent'
+import StudentWithClassComponent1 from './Components/StudentWithClassComponent1'
+
+
+//alert ("jjjjjdk")
+function App() {
+
+   const[status,setStatus]=useState(true)
+
+  return (
+    <div className="App">
+       <br />
+      
+      {
+        status? <h1>video 17</h1>:null
+      }
+      <button onClick={()=>setStatus(false)}>Hide</button>
+      <button onClick={()=>setStatus(true)}>Show</button>
+    </div>
+  );
+}
+
+export default App;
+
+...ek hi button se hide show karane k liye
+
+
+import React,{useState} from 'react'
+import logo from './logo.svg';
+import './App.css';
+import User from './Components/User'
+import UserClassComponent from './Components/UserClassComponent'
+import UserJSX from './Components/UserJSX'
+import StateWithClassComponent from './Components/StateWithClassComponent'
+import Student from './Components/Student'
+import StudentWithClassComponent from './Components/StudentWithClassComponent'
+import StudentWithClassComponent1 from './Components/StudentWithClassComponent1'
+
+
+//alert ("jjjjjdk")
+function App() {
+
+   const[status,setStatus]=useState(true)
+
+  return (
+    <div className="App">
+       <br />
+      
+      {
+        status? <h1>video 17</h1>:null
+      }
+	<button onClick={()=>setStatus(!status)}>Toggle</button>
+    </div>
+  );
+}
+
+export default App;
+
+//

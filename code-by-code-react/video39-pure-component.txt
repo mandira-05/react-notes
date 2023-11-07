@@ -1,0 +1,74 @@
+video 39 - pure component
+
+pure component ek feature hota h..jo sirf class component me hi use kr skte h 
+
+component ka re-rendering rokhta h 
+
+agar niche button me update k pehle ek value h ..aur button click pe value chenge hota h ...and fir se click hua toh wahi same rehta h 
+toh ye avoid krne k liye pure component use krte h 
+
+yaha pe purecomponent use krne k liye PureComponent likhna h extend k baad
+
+class App extends Component (
+	constructor() {
+	super();
+	this.state={
+		count:1
+		}
+	}
+	render (){
+		
+		return (
+			<div className="App">
+				<h1>Pure Component video 39</h1>
+				<button onClick={()=>{this.setState({count:this.state.count+1})}}>Update Count</button>
+			</div>
+		)
+	}
+
+)
+
+
+abi props k saath purecomponent
+
+class App extends Component (
+	constructor() {
+	super();
+	this.state={
+		count:1
+		}
+	}
+	render (){
+		
+		return (
+			<div className="App">
+				<h1>Pure Component video 39</h1>
+				<Video 39 count={this.state.count} />	
+				<button onClick={()=>{this.setState({count:this.state.count+1})}}>Update Count</button>  //abi yaha pe count:1 ...dala toh console me...call hoga nhi aur +1 dala toh render hoga
+			</div>
+		)
+	}
+
+)
+
+
+import React,{PureComponent} from 'react'
+
+class Video39 extends PureComponent {  
+	
+	
+	render ()
+	{
+		return (
+			<>
+			
+				<h1>Video 39 {this.props.count}</h1>
+			
+			</>
+		);
+	}
+}
+
+export default Video39
+
+

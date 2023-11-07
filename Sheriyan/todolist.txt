@@ -1,0 +1,85 @@
+layout.js ka child h page.js
+
+<> </> ye empty tags h ..<div></div jaise use krte h ...isko fragments b bolte h 
+
+todolist me likhne ki jagah hoti h us k liye input tag use krte..usk k liye form banana h
+
+abi page.js me likh rhe h 
+
+two way bindning
+i/p tag banaya h ..usme kuch likha...
+directly browser me likha..but react ko pta nhi h k kya likha h 
+
+but hume react ko b dikhana padta h..islye two way bindning krte h
+
+placeholder - text box blank h toh waha placeholder dala h ..k jab wo blank hoga...toh placeholder me jo value di h wo chalega
+
+"use client" -- hum client side pe kaam kr rhe h ..islye ye upr dalna padta h 
+
+first wala i/p type tag me
+
+ value={title}
+        onChange={(e) => {
+          setTitle(e.target.value)  
+
+dala h ab
+
+hum as a user ..title variable  me chnage kr rhe h ...jo browser me txt box pe dikh rha h ..iska mtlb replicate ho rha h contnt jo hum likh rhe h
+directlt text box me nhi jata content
+
+two-way binding mtlb -  2 binding kr rhe h..mtlb react ko b inform kr rhe h k data kaise store ho rhe h 
+and user ko b data dikh rha h likha hua 
+
+
+pehle hum directly likh rhe the textbox me...lekin ab title variable me likh rhe h ..wo chnages text box me humkko as a user dikhra h
+
+abi hum task description add krne k baad add task click krne pe contetnt gayab hota h ..mtlb page reload hor h
+
+abi submithandler ka function banana h 
+
+first form tag me onSubmit ka event dala h..usme submithandler ka function call krna h 
+
+ab submithandler function me preventDefault ye inbuilt method h ..jo prevent krta h form ko submit hone se...sirf isko dene se contnt type hoga..lekin add task krne pe aage nhi jayega
+preventDefault() hi page ko reload hone se rokhta h 
+
+title,desc ko console.log krne k baad
+
+setTitle("") aur setDesc("") krne se fir se blank me set ho jata h 
+
+abi task show krne k liye
+
+const [mainTask,setmainTask] = useState("") ---create kia h 
+
+isme hum jo task add krege..wo isme jayega (mainTask)
+
+ab hr tag banaya h ..form tag k niche
+
+ek renderTask kr k varaible banaya h usko hr tag me div tag me dala h ..jo No task here kr k dikha rha h 
+
+
+ab submitHandler function me setmainTask add krege and usme mainTask pass krna h taaki task dikhe jo hum add kr rhe h 
+setMainTask([...mainTask,{title,desc}]) ye aise islye likha h taaki jo pehle k task add kiye h wo b dikhe
+
+mainTask hi h ek container jaisa h ..jise tasks dikhte h ..q ki wo store krta h 
+
+ab mainTask.map ka arrow funtction banaya h upr
+
+i-index h ...jo key / unique id h
+
+Array.from islye use kia h q ki ...video k code se nhi chlra tha
+
+abi delet button add krna h 
+
+deletehandler ek function banaya h ..jo niche k button tag me call krege
+
+splice use kia h ...
+
+and niche button tag me
+
+<button onClick={ () => {
+            {deleteHandler(i)}
+          }
+
+use kia h ...
+
+agar sirf {deleteHandler(i)} use kia toh directly dlete hota h 

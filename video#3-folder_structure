@@ -1,0 +1,21 @@
+//folder structure
+package.json-
+contains dependeinces and scripts requires for projects
+line 9 package.json me dependencies h 
+
+scripts b us k niche h 
+
+
+package-lock.json
+
+
+node modules - me sab dependencies h 
+public - me 3 files h 
+abi k liye sirf index.html pe dhyaan dena h -yaha root dom node h
+
+is file me body tag me kuch chnge nhi krna
+
+src - ye hi use krne waale jyada
+index.js me - dom wagera use hoga jo index.html me mentioned h , 
+App.js - isme jo chnge krte wahi chnge for browser me dikhega
+

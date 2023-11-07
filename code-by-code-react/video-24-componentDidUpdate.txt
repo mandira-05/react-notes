@@ -1,0 +1,44 @@
+24-video
+
+componentDidMount - life cycle method
+
+render banne k baad
+
+html ,component sab ready hone k baad  componentDidMount() execute hota h 
+
+iska use tab use krta h ..jab API call krna hota h 
+
+componentDidMount - ab use hota jab html sab ready ho k chap gaya h 
+componentDidUpdate - tab use hota jab state ya prop update hota h 
+
+agar hum state ya prop ko b fir se update krte h toh componentDidMount run nhi hoga...
+fir se render method hi run hoga
+
+import './App.css';
+import React from 'react'
+class App extends React.Component {
+  constructor()
+  {
+    super();
+    console.warn("constructor")
+    this.state={name:"anil"}
+  }
+  componentDidMount()
+  {
+    console.warn("componentDidMount")
+
+  }
+  render()
+  {
+    console.warn("render")
+
+    return (
+      <div className="App">
+        <h1>Component Did Mount {this.state.name}</h1>
+        <button onClick={()=>this.setState({name:"Sidhu"})}>Update</button>
+      </div>
+    );
+  }
+}
+
+export default App;

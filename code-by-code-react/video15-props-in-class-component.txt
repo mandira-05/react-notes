@@ -1,0 +1,100 @@
+video15- props with class component
+
+
+import React,{useState} from 'react'
+import logo from './logo.svg';
+import './App.css';
+import User from './Components/User'
+import UserClassComponent from './Components/UserClassComponent'
+import UserJSX from './Components/UserJSX'
+import StateWithClassComponent from './Components/StateWithClassComponent'
+import Student from './Components/Student'
+import StudentWithClassComponent from './Components/StudentWithClassComponent'
+
+
+//alert ("jjjjjdk")
+function App() {
+
+  return (
+    <div className="App">
+      <h1>Hello world!</h1>
+ 
+      <StudentWithClassComponent name="anil" email="anil@gmail.com" />
+    </div>
+  );
+}
+
+export default App;
+
+//JSX ko bina react k b use kr skte h ye
+
+//video 15
+
+import React,{Component} from 'react'
+
+class StudentWithClassComponent extends Component {  //React.Component b likh skte h ..agar upr import nhi krna h toh
+	
+
+	render ()
+	{
+		return (
+			<>
+			
+				<h1>ye props With Class Component ka example h</h1>
+				<h2>Student %#%${this.props.name} Email: {this.props.email}</h2>
+			
+			</>
+			)
+	}
+}
+
+export default StudentWithClassComponent
+
+//props ko parent component me hi chnge kr skte h ...receiving component me nhi
+
+//function ko as props b use kr skte h 
+
+
+abi button click pe props kaise chnge krna h 
+import logo from './logo.svg';
+import './App.css';
+import Student from './Student'
+import React from 'react'
+class App extends React.Component {
+  constructor()
+  {
+    super();
+    this.state={
+      name:"Anil"
+    }
+  }
+  render()
+  {
+    return (
+      <div className="App">
+       <h1>Props !</h1>
+       <Student name={this.state.name} email="anil@test.com"></Student>
+       <button onClick={()=>this.setState({name:"Sidhu"})} >Update Name</button>
+      </div>
+    );
+  }
+}
+
+export default App;
+
+import React from 'react'
+
+export default class Student extends React.Component{
+
+
+    render()
+    {
+        console.log(this.props)
+        return(
+        <div  style={{backgroundColor:'skyblue',margin:20}}>
+           <h1>Hello  {this.props.name}</h1>
+        <h3>{this.props.email}</h3>
+             </div>
+        )
+    }
+}

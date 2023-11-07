@@ -1,0 +1,34 @@
+video 25- componentDidUpdate
+
+jab kuch prop ya state update hoga tab hi chalega
+
+agar kuch update hua toh nhi chalega
+
+for eg ek variable h jiska data chnge krna h ek button update pe...
+
+toh first time button pe cleick krege toh constructor,render,componentDidUpdate execute hota
+
+us k baad fir se kitne baar b click button kiya toh sirf render and componentDidUpdate hi chalega
+
+
+componentDidUpdate(preProps,preState,snapshot){
+	console.warn("componentDidUpdate",preState) //ye last state jo tha wo print krega console me 
+
+}
+
+agar upr this.state me value =1 h toh render method me setstae k baad 2 ho rha h click button k baad toh
+
+preState console me value 1 dikhayega
+
+for eg hum 2 states (previos and current) ko compare krne k liye use kr skte h 
+
+snapshot ...humesha undefined show krta h ..console me
+
+agar pehle getSnapshotBeforeUpdate implement kia toh hi snapshot() chalega
+
+
+
+
+
+render k andar this.state nhi krna chahiye ...ya setState b nhi krna chahiye
+

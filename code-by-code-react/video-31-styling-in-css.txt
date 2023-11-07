@@ -1,0 +1,41 @@
+video 31 - styling in css
+
+
+import React,{useState,useEffect} from 'react'
+import logo from './logo.svg';
+import './App.css';
+
+import './style.css'
+
+import style from './custom.module.css'
+
+//alert ("jjjjjdk")
+function App() {
+
+
+      <h1 >Video31 - style in react js</h1>
+      <h1 className="primary">Style type 1</h1>
+      <h1 style={{color:'red' , backgroundColor:"black"}}>Style type 2</h1>            
+      <h1 className={style.success}>Style type 3</h1>
+    </div> 
+  );
+}
+
+export default App;
+
+
+style.css
+
+.primary {
+	background-color: black;
+	color: white;
+}
+
+
+custom.module.css
+
+.success {
+	color: goldenrod;
+	background-color: black;
+}
+

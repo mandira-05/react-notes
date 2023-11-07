@@ -1,0 +1,29 @@
+//video 4
+//components - a part of UI
+//components ko reuse b kr skte h 
+///components k andar b component daal skte h 
+
+//application k mainily 5 components hote h 
+-header,sidenav, main content, footer and ye sab root componenet me hote h 
+
+
+
+//component code js file me hora h 
+app.js me AppComponent ka code h 
+jsx ka b code hota h ek alag file me
+compponenet mtlb code jo js file me h 
+2 types of components
+1-stateless Function Component
+js k function jo html me retunr krte h wo stateless fucntion components h 
+eg -
+function Welcome(props) {
+	return <h1>Hello, {props.name} </h1>
+}
+
+
+2-stateful class component
+
+regular es6 classes that extend component class from library
+
+they always have render method which return html
+

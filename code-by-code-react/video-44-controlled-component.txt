@@ -1,0 +1,27 @@
+video 44- controlled component
+
+isme koi na koi i/p field hota hi h 
+
+react me jab hum i/p fields ko state k through control krte h tab usko controlled component bolte h 
+
+uncontrolled comp wo hota h ..jo directly dom k through handle kr skte h 
+
+
+import './App.css';
+import React,{useState} from 'react'
+function App() {
+  const [val,setVal]=useState("")
+
+   return (
+    <div className="App">
+      <h1>Controlled Component </h1>
+      <input type="text" value={val} onChange={(e)=>setVal(e.target.value)} />
+   <h1>{val}</h1>
+    </div>
+  );
+
+}
+export default  App;
+
+ab agar hum jo brwoser me i/p box me jo likhte h ..usko screen me brpwser me show krna h toh state hi use krte h 
+

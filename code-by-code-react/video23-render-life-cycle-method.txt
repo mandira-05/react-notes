@@ -1,0 +1,14 @@
+video 23 -
+
+render life cycle method
+
+render use q krte h ---executte kr k represent krna
+
+jab b koi props state update hota h render fir se execute hoga
+
+render kab kab call hota h?
+
+-jab component ready ho jayega
+-jab state ya props update hoga tab
+
+ construtcoor k andar b props receive kr skte h 

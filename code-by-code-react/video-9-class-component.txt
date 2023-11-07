@@ -1,0 +1,60 @@
+video 9 - class component
+
+yaha pe start me import react wala line likhna padta h 
+
+
+component k andar  component bana skte h 
+
+lekin agar andar ka component use krna hoga toh jis k andar likha h usko pehle use krna hoga
+
+
+App.js
+
+import logo from './logo.svg';
+import './App.css';
+import User from './Components/User'
+import UserClassComponent from './Components/UserClassComponent'
+
+
+function App() {
+
+  function Apple ()
+    {
+      return (<div>Apple component</div>)
+    }
+
+
+    
+  return (
+    <div className="App">
+      <h1>Hello world!</h1>
+      <User />
+      <UserClassComponent />
+      <Apple />
+    </div>
+  );
+}
+
+export default App;
+
+
+//video 9
+
+import React,{Component} from 'react'
+
+class UserClassComponent extends Component {  //React.Component b likh skte h ..agar upr import nhi krna h toh
+	render ()
+	{
+		return (
+			<h1>HEllo me hu class componet</h1>
+			)
+	}
+}
+
+export default UserClassComponent
+
+
+//ye class componnet h islye react import wala line likhna padta h 
+//aur render k andar b likhna padta h sab
+
+

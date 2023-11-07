@@ -1,0 +1,138 @@
+video 38 -send data from parent to child
+
+isko lifting state up b bolte h 
+
+abi --- parent se child ko data send krna 
+
+
+import React,{useState,useEffect} from 'react'
+import logo from './logo.svg';
+import './App.css';
+import User from './Components/User'
+import UserClassComponent from './Components/UserClassComponent'
+import UserJSX from './Components/UserJSX'
+import StateWithClassComponent from './Components/StateWithClassComponent'
+import Student from './Components/Student'
+import StudentWithClassComponent from './Components/StudentWithClassComponent'
+import StudentWithClassComponent1 from './Components/StudentWithClassComponent1'
+import Login from './Components/Login'
+import Video20 from './Components/User-video20'
+import Members from './Components/Members'
+import Video30 from './Components/User-video30-useEffect'
+import './style.css'
+
+import style from './custom.module.css'
+
+import {Button} from 'react-bootstrap'
+import {Table} from 'react-bootstrap'
+
+import Video36 from './Components/Emp-video36'
+import Cols from './Components/Cols'
+import Video38 from './Components/Video38'
+
+
+//alert ("jjjjjdk")
+function App() {
+
+
+  let data="MEWOOW"
+ 
+
+    let data6 = "Nezuko-chan"
+
+  return (
+    <div className="App">
+
+      <h1>video 38 - send data from parent to child</h1>
+      <Video38 name={data6}/>
+
+
+
+    </div> 
+  );
+}
+
+export default App;
+
+function Video38 (props)
+{
+	return(
+		<div>
+			<h2>User Name: {props.name}</h2>
+			<button>Click Me</button>
+		</div>
+	)
+}
+
+export default Video38;
+
+abi ..Video38 se App.js me function bhjna h 
+
+
+import React,{useState,useEffect} from 'react'
+import logo from './logo.svg';
+import './App.css';
+import User from './Components/User'
+import UserClassComponent from './Components/UserClassComponent'
+import UserJSX from './Components/UserJSX'
+import StateWithClassComponent from './Components/StateWithClassComponent'
+import Student from './Components/Student'
+import StudentWithClassComponent from './Components/StudentWithClassComponent'
+import StudentWithClassComponent1 from './Components/StudentWithClassComponent1'
+import Login from './Components/Login'
+import Video20 from './Components/User-video20'
+import Members from './Components/Members'
+import Video30 from './Components/User-video30-useEffect'
+import './style.css'
+
+import style from './custom.module.css'
+
+import {Button} from 'react-bootstrap'
+import {Table} from 'react-bootstrap'
+
+import Video36 from './Components/Emp-video36'
+import Cols from './Components/Cols'
+import Video38 from './Components/Video38'
+
+
+//alert ("jjjjjdk")
+function App() {
+
+
+  let data="MEWOOW"
+
+
+    let data6 = "Nezuko-chan";
+
+    function parentAlert (data7) {
+      alert(data7);
+    }
+
+  return (
+    <div className="App">
+    
+      <h1>video 38 - send data from parent to child</h1>
+      <Video38 name={data6}/>
+      <h1>video 38 - send data from child to parent</h1>
+      <Video38 alert={parentAlert} />
+
+    </div> 
+  );
+}
+
+export default App;
+
+function Video38 (props)
+{
+	const data7="Kamoboko gonpachiro"
+	return(
+		<div>
+			<h2>User Name:</h2>
+			<button onClick={()=>props.alert(data7)}>Click Me</button>
+		</div>
+	)
+}
+
+export default Video38;
+
+

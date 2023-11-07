@@ -1,0 +1,19 @@
+video 27 - componentWillUnmount
+
+jab compontn DOM se remove hoga tab ye componentWillUnmount call hota h 
+
+
+for eg...koi componnt ko hide krna h toh componentWillUnmount use kr skte h ..isme cond de skte h 
+
+k kab hide krna h ..
+
+
+shouldComponentUpdate and componentDidUpdate dono me pehle kon execute hota h ???
+
+
+shouldComponentUpdate pehle hoga..agar isme return true hoga toh ...
+
+
+agar parent component funtcional comp h and child comp ...class comp h ...
+toh b componentWillUnmount call hoga 
+

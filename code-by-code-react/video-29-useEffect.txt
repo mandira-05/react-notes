@@ -1,0 +1,64 @@
+video 29 - useEffect
+
+ye functional component me use krte h 
+
+fucntional call hoga ya kuch props ,state update hota h ..tab useEffect use krte h
+
+condtitonal me b chala skte h ..for eg ...3 states ko ek saath kara skte h ..ya koi b ek ko
+
+
+useEffect - componentDidMount, componentDidUpdate, componentWillMount in sabka combination h 
+
+ye bina click ya call kiye pop up aa jata h 
+
+  useEffect(()=>{
+    alert("Use Effect")
+  })
+
+
+
+import React,{useState,useEffect} from 'react'
+import logo from './logo.svg';
+import './App.css';
+import User from './Components/User'
+import UserClassComponent from './Components/UserClassComponent'
+import UserJSX from './Components/UserJSX'
+import StateWithClassComponent from './Components/StateWithClassComponent'
+import Student from './Components/Student'
+import StudentWithClassComponent from './Components/StudentWithClassComponent'
+import StudentWithClassComponent1 from './Components/StudentWithClassComponent1'
+import Login from './Components/Login'
+import Video20 from './Components/User-video20'
+import Members from './Components/Members'
+
+//alert ("jjjjjdk")
+function App() {
+
+
+
+
+  const[count,setCount]=useState(0);
+
+  useEffect(()=>{
+    //alert("Use Effect")
+    console.warn("Use Effect"); //componentdidMount jaice call ho jayega
+
+  })
+
+  return (
+    <div className="App">
+     
+      <br />
+      <br />
+      <h1>video -29- useEffect {count}</h1>
+      <br />
+      <button onClick={()=>setCount(count+1)}>Update Counter</button>
+    </div> 
+  );
+}
+
+export default App;
+
+hooks ko class component me use nhi kr skte h 
+
+

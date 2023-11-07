@@ -1,0 +1,19 @@
+video 64 - postman
+
+browser me postman extension dlownload krna h 
+
+launch app k baad
+browser me hi APIs test kr skte h 
+
+get, postt,delete ..ye pehle selec krna padta h ...
+
+api ka ulr dalna h fir
+
+fir body me jana h
+fir niche raw select kr k ...Json select krna h 
+
+pehle se shyd kuch data ho skta h 
+
+
+ye video fir se dekhna hoga
+

@@ -1,0 +1,42 @@
+video 41
+
+ref - class comp me hi use hota h mostly
+
+ref ko use krna avoid krna h 
+
+ref - directly change kr skta h dom ko...mtlb koi b elemnt me chnge
+
+import './App.css';
+import React,{createRef} from 'react'
+class App extends React.Component {
+  constructor()
+  {
+    super();
+    this.inputRef=createRef(); //ab yaha pe inputRef variable ka property kaise b chnge kr skte h directly
+  }
+  componentDidMount()
+  {
+    // console.warn(this.inputRef.current.value="1000")  ///directly i/p box me 1000 show hota h
+  }
+  getVal()
+  {
+    console.warn(this.inputRef.current.value)  /// .value se ...data get kr skte h ..i/p box ka..console me
+    this.inputRef.current.style.color="red"
+    this.inputRef.current.style.backgroundColor="black"
+
+  }
+  render() {
+    return (
+      <div className="App">
+        <h1>Ref in React </h1>
+        <input type="text" ref={this.inputRef}  />
+        <button onClick={()=>this.getVal()}>Check Ref</button>
+      </div>
+    );
+  }
+}
+
+export default App;
+
+button click ...andr ka likha hua txt..color chnge hota h 
+

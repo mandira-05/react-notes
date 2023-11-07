@@ -1,0 +1,58 @@
+video-62-dynamic-routing
+
+jab humko pta nhi kitne pages(routes) banne waale h toh tab dynamic routing lagana
+
+ek loop k andar hi product ko show krna h , toh product(page) ko id k basis pe show krna h 
+
+
+import './App.css';
+import React from 'react'
+import {BrowserRouter as Router,Link,Route} from 'react-router-dom'
+import User from './User'
+function App() {
+  let users=[
+    {name:'anil',id:1},
+    {name:'peter',id:2},
+    {name:'bruce',id:3},
+    {name:'tony',id:4},
+  ]
+  return (
+    <div className="App">
+      <Router>
+      <h1>React Dynamic Routing</h1>
+      {
+        users.map((item)=>
+      <div><Link to={"/user/"+item.id+"/"+item.name}>{item.name}</Link></div>)  /// ye url pe dikhega
+      }
+      <Route path="/user/:id/:name" ><User /></Route>
+      </Router>
+    </div>
+  );
+}
+export default App;
+
+User.js
+
+import {withRouter} from 'react-router-dom'
+function User(props)
+{
+    console.warn(props)
+    return(
+    <div><h1>User No {props.match.params.id}</h1>
+    <h1>User Name {props.match.params.name}</h1></div>
+
+    )
+}
+
+export default withRouter(User);
+
+
+//id k base pe hum us id ka baaki ka info nikal skte h DB se
+
+
+//swicth q use krte h ....
+agar humne 2 route ko same name dia h ..for eg - home and about us same route name h 
+toh switch tag ... jo sab se pehla route name match hota h ...toh usko show krega ...and dusre waale same name k route pe nhi jayega
+
+
+

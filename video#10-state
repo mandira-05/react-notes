@@ -1,0 +1,20 @@
+video#10
+state 
+
+hume screen pe kya dikhana (render) h us k 2 ways h -
+1st props
+2nd state
+
+prop vs state
+
+1] props get passed to the components, state is managed within the component
+2] props are immutable - q ki parent passdown krta h props to child component, parent own krta h props
+state - is managed within component and can chnge state
+
+
+3] in functional compents - props are accessed using props parameter, and in class props are accessed using this keyword
+this.props
+state - accesed using useState Hook in functional components
+and in class is accessed by this keyword, this.state
+
+

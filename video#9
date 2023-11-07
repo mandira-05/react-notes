@@ -1,0 +1,11 @@
+video#9
+props -
+
+
+props are immutable
+
+jo hume render karana h us k liye props use krte h 
+render mtlb jo screen me dikhana chahte h usko bolte h render
+
+render method me 3 parameters hote h - kya dikhana , kaha dikhana, and a callback function
+

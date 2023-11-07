@@ -1,0 +1,405 @@
+next.js framewrk h ..frontend backned h 
+
+abi k liye app foldr  me hi dhyaan dena h 
+page.js hi pehla dikh rha h brwser
+
+
+
+import React from 'react'       ---next js me likna zaruri nhi h, 
+
+const page = () => {
+
+    return (
+        <div>
+            Happy Ganesh Chaturthi!
+        </div>
+    )
+}
+
+export default page ..ye page humko react ko bhjna h islye export likhna padta h ,...
+
+aur default likhna zaruri h ..agar nhi likha toh aage jis jis file me page file use krna h ..un sabka naam mention krna hoga
+
+
+2n ex
+
+const page = () => {
+    const a =10
+    return (
+        <div>
+            <h3>{a}heheheh</h3>
+        </div>
+    )
+}
+
+export default page
+
+
+real dom , virtual dom
+
+real dom me simple html hota h 
+
+ek tree structure h
+
+window -> html -> body -> div ->
+
+div -?elem 1 -> h1
+       |    |	
+       h1    p
+
+yaha pe agr h1 me chnge krna h toh, ye pura dom tree update hota h 
+
+virtual dom me 
+
+tree ka copy bana lega, suppose copy 1, copy2 aise banaya h 
+
+agar sirf h1 chnge krna h 
+
+toh copy1 me h1 chnge hoga fir 
+
+copy1 wala tree strucute and oroginal wala tree structure compare hoga.. 
+
+jo h1 copy1 me update h bas utna hi orignal waale me update hoga..pura tree nhi 
+isko virtual dom bolte h 
+
+react virtual dom pe chlta h 
+
+<div > tag ek hi hota h code me, isme hi mostly code likhege..h1 ka tag aur baaki sab
+<div> </div> ko yaha pe fragments boltw h 
+
+<> </> b use kr skte h 
+
+
+const page = () => {
+    //const a =10
+    let a = 10
+    let marks = 80
+    const changeMarks = () => {
+        console.log(marks)
+        marks=33
+        console.log(marks)
+    }
+    return (
+        <>
+            <h1 className='font-bold text-x1 text-red-500'>My total marks are: {marks}</h1>
+            <button onClick = {changeMarks} className='bg-gray-400 px-5 py-2 rounded mt-5 text-white font-bold' >Update</button>
+        </>
+    )
+}
+
+ye nhi code,chlagea error dega...directly ufnction/button chal jayega
+
+ya fir button k andar directly onClick ko fat arrow func bana kk b dala toh b nhi brwoser pe nhi hoga update marks
+sirf console me hoga
+ye chnge idr islye nhi hora q ki react ko bata nhi rhe k chnge kr rhe h 
+
+agar returm method k bahar marks=80 intilaize kia h aur onclick (fat arrow fun) ko button me add kr k directly marks=33 b dala toh b code nhii chlagea
+
+
+react me variables use state hook se banate h 
+usestate mtlb react k variables
+
+
+const [marks, setMarks] = useState(80)  ...marks ki jo value h usko right side me useState me bracket me dala h
+is k liye useState snippet pe click krna
+
+and upr import b krna hota h 
+
+marks - const h and setMarks - function h ..jo update krega ..marks variable ko
+
+
+abi useState upr likhne k baad..return function me <buttoon tag me setMarks ko call kia h bracket me marks dia 
+jo buttoon click pe setmarks me mention kiye hue marks aa jayege
+
+breaking the components
+..humesha page.js me sara code nhi likhte
+
+
+page.js me abi sab likh rhe 
+
+layout.js ... main page  --index.html jaise kaam krta h ye
+
+
+components k liye alag folder banate h 
+
+Header.js ek component h ...usko page.js me import krna h 
+
+parent ko child me pass krne k liye props use krte h 
+
+matlb page.js me header tag k andar jo user ka value pass kia h ..usko humko ..header.js me pass krne k liye props usse krna padta h 
+
+
+props, usestate ka example
+
+"use client"
+import React, {useState} from 'react'
+import Header from "@/Components/Header"
+
+const page = () => {
+    //const a =10
+    let a = 10
+   // let marks = 80
+    const [marks, setMarks] = useState(80)  //as a array rakha h 
+    const [user, setUser] = useState("Mandira")   
+    const [editor, setEditor] = useState("Nikita")   
+    //const changeMarks = () => {
+    //    console.log(marks)
+    //    marks=33
+     //   console.log(marks)
+    //}
+    return (
+        <>
+          {/*  <h1 className='font-bold text-x1 text-red-500'>My total marks are: {marks}</h1>
+            <button onClick = {() => {
+                setMarks(30)
+            }} className='bg-gray-400 px-5 py-2 rounded mt-5 text-white font-bold' >Update</button>
+            */}
+
+            <Header user={user} edit={editor}/>
+            {/*{user} */}  {/* Mandira*/}
+        </>
+    )
+}
+
+export default page
+
+API ka meaning kya h 
+
+
+routing-
+
+ek page se jump kr k dusre page pe jana..yaha page load nhi hota
+
+url chnge hota h page load nhi hota
+
+app folder k andar foldr banana h 
+About ka foldr banaya h, is folder k andar page.js banana h 
+
+courses, product fplder , me b banana h 
+
+ 
+pehle linking k liye <a> tage use krte the
+
+lekin abi Link import krte h 
+
+link tag ko 3 baar likhne se acha ...
+
+import React from 'react'
+import Link from 'next/link'
+
+const Header = (props) => {
+	
+	return (
+		<div className='h-16 px-5 bg-red-500 flex items-center justify-between'>
+
+			<h2>{props.user}</h2>
+			<div className='flex gap-8'>
+				{/*<h4>About</h4>*/}
+				{/*<h4>Career</h4>*/}
+				{/*<h4>Blog</h4>*/}
+				{/*<h4>Account</h4>*/}
+				{/*<h4>{props.edit}</h4>*/}
+				<Link href="/About">About</Link> 
+            	<Link href="/Product">Product</Link> 
+            	<Link href="/Courses">Courses</Link>  
+			</div>
+		
+		</div>
+		)
+}
+
+export default Header
+
+
+ye upr k code ko chnge kia h 
+
+
+abi About, Courses,Product ye 3no k b page.js me  and main wala page.js<Header/> link ko import kiya h 
+
+abi yaha har ek page.js me header import kia h ..islye ye nhi krna
+directly layout.js me hi import krna h bas
+
+wo sab pages k liye dikh jayega
+
+abi About, Courses,Product ye 3no k b page.js and main wala page.js me <Header/> link hataya  h 
+
+ye codes h sabka - 
+
+page.js ..jo app folder me h 
+
+import React from 'react'
+import Header from '@/Components/Header'
+
+const page = () => {
+ 
+    return (
+        <>
+            {/*<Header/>     */}
+            <h1>This is home page</h1>   
+            
+            {/*<a href='/About'>About</a>*/}
+            {/*<a href='/Product'>Product</a>*/}
+            {/*<a href='/Courses'>Courses</a> */}
+            {/*<Link href="/About">About</Link> */}
+            {/*<Link href="/Product">Product</Link> */}
+            {/*<Link href="/Courses">Courses</Link>   */}          
+        </>
+    )
+}
+
+export default page
+
+Header.js ..jo Component folder me h 
+
+import React from 'react'
+import Link from 'next/link'
+
+//const Header = (props) => {
+const Header = () => {	
+	return (
+		<div className='h-16 px-5 bg-red-500 text-white flex items-center justify-between'>
+
+			{/*<h2>{props.user}</h2>*/}
+			<h2>Logo</h2>
+			<div className='flex gap-8'>
+				{/*<h4>About</h4>*/}
+				{/*<h4>Career</h4>*/}
+				{/*<h4>Blog</h4>*/}
+				{/*<h4>Account</h4>*/}
+				{/*<h4>{props.edit}</h4>*/}
+				<Link href="/About">About</Link> 
+            	<Link href="/Product">Product</Link> 
+            	<Link href="/Courses">Courses</Link>  
+			</div>
+		
+		</div>
+		)
+}
+
+export default Header
+
+layout.js ..ye app folder me h 
+
+import './globals.css'
+import Header from '@/Components/Header'
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <body >
+        <Header/>
+        {children}
+      </body>
+    </html>
+  )
+}
+
+page.js ...ye About folder me h 
+
+import React from 'react'
+import Header from '@/Components/Header'
+
+const about = () => {
+ 
+    return (
+        <>
+            about
+        </>
+    )
+}
+
+export default about
+
+page.js ...ye Courses folder me h 
+
+import React from 'react'
+import Header from '@/Components/Header'
+
+const courses = () => {
+ 
+    return (
+        <>
+            
+            Courses
+        </>
+    )
+}
+
+export default courses
+
+page.js ...ye Product folder me h 
+
+import React from 'react'
+import Header from '@/Components/Header'
+
+const product = () => {
+ 
+    return (
+        <>
+           
+            Product
+        </>
+    )
+}
+
+export default product
+
+Axios --
+
+API ko call kaise krte hh 
+
+cmd me  -   
+npm i axios 
+ye type krna h, ye API ko call krta h 
+
+AXIOS API ko call krta h 
+
+API applications k bich me communication ka kaam krta h 
+
+cmd me commnd dalne k baad
+
+page.js jo app folder me h --usme axios ko import krna
+
+yaha pe lorem picsum api ko call krege
+lorem picsum k site pe jaa k 
+
+https://picsum.photos/v2/list  --url ko copy kia
+
+pages.js jo app folder me h
+usme ek async fucntion banaya h and usme is url (API) ko call kia h 
+
+axios k liye async hi use kia h ..agar normal arrow faunction bana k run kia toh..console me pending dikhata h
+
+brwoser me console me chk krna..data milta h as a object 
+
+abi ye button me bas getImages ka function call kia tha
+
+data ko show ken k liye abi ...ek aur div tag banana h button tag k bahar...map function lagaana
+arroe function banaya h idr
+
+isko retunr method k pehle show kia tha ..author name dikhane k lye
+
+ //return <h1 key={i}>{elem.author}</h1>  //author name dikehaga
+
+<div className='p-10'>  //isse images dikh jayega
+                {Images.map((elem,i) => {
+                    return <img 
+                        key={i}
+                        src={elem.download_url}
+                        width={300}    
+                        height={300}
+                        className="m-10 rounded inline-block"
+                    /> 
+
+                })}
+            </div>
+
+useEffect kya h 
+
+getimages - ko call krta h 
+
+bina button dbaye images dikega..useEffect use kia toh
+
+
+
+

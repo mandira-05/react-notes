@@ -1,0 +1,188 @@
+video 14 - props with fucntional component
+
+props - data pass krna h ek component se dusre componnent toh props use krte h 
+
+
+import React,{useState} from 'react'
+import logo from './logo.svg';
+import './App.css';
+import User from './Components/User'
+import UserClassComponent from './Components/UserClassComponent'
+import UserJSX from './Components/UserJSX'
+import StateWithClassComponent from './Components/StateWithClassComponent'
+import Student from './Components/Student'
+
+//alert ("jjjjjdk")
+function App() {
+
+
+  let data="MEWOOW"
+  {/* function Apple ()
+    {
+      return (<div>Apple component</div>)
+    }
+*/} 
+
+  function Apple ()  //clcik event and fucntion ka example h ye
+    {
+      data="dobbi"
+      //alert ("function call");
+      alert (data);
+    }
+   
+   let data1='Nikita';
+   function UpdateData () {
+      data1="Nawale";
+      alert(data1);
+   } 
+    
+   const [data2,setdata2]=useState("Nikitaaa");
+   function UpdateData1 () {
+      setdata2("Nawalee")
+   } 
+
+  return (
+    <div className="App">
+      <h1>Hello world!</h1>
+      <User /> 
+      <UserClassComponent />
+      {/* <Apple />*/} 
+      <UserJSX /> 
+      {/*<button onClick={Apple()}> Click Me </button>*/}  {/* ///aise button apne aap call hota */}
+     {/* <button onClick={Apple}> Click Me </button> */} {/* ///aise button click hone pe call hota */}
+     {/* <button onClick={()=>alert("hello me hu alert")}> Click Me </button> */} {/*agar idr pe hi directly alert ya function define krna/ use krna h toh arrow function use krna hoga */}
+      
+     <h1>{data} - click event ka example h ye</h1> 
+     <button onClick={Apple}> Click Me </button>  {/* aise use kia toh sirf alert me chnge hoga name ...lekin clcik krne pe screen pe name chnge nhi hota */}
+      <br />
+      <h1>State in react</h1>
+      <h1>{data1}</h1>   {/*  aise screen pe data chnge hota nhi h  , islye state use krte h  */}
+      <button onClick={UpdateData}>Update data</button>
+      <h1>{data2}</h1> 
+      <button onClick={UpdateData1}>Update data</button>
+      <StateWithClassComponent />
+      <Student name="mandira" email="kittymandira@gmail.com" other={{add: 'kalyan', mobile:'007'}}/>
+      <Student name="Nikita" email="nikita.nawale25@gmail.com" other={{add: 'zuzuzu', mobile:'008'}}/>
+      <Student name="shibi" email="shibi@gmail.com" other={{add: 'hghgh', mobile:'005'}}/>
+    </div>
+  );
+}
+
+export default App;
+
+//JSX ko bina react k b use kr skte h ye
+
+
+Student.js...components folder me h 
+
+///video14
+
+function Student (props) {  ///functional component h ye
+	console.log(props);
+	return (
+		<div style={{backgroundColor: "skyblue", margin:10}}>
+			<h1>Student functional Component - video14</h1>
+			<h1>Hello - {props.name}</h1>
+			<h2>Email: {props.email}</h2>
+			<h3>Address: {props.other.add}</h3>
+		</div>
+		)
+}
+
+export default Student
+
+abi props ko useState se update krna h toh
+
+
+import React,{useState} from 'react'
+import logo from './logo.svg';
+import './App.css';
+import User from './Components/User'
+import UserClassComponent from './Components/UserClassComponent'
+import UserJSX from './Components/UserJSX'
+import StateWithClassComponent from './Components/StateWithClassComponent'
+import Student from './Components/Student'
+
+//alert ("jjjjjdk")
+function App() {
+
+
+  let data="MEWOOW"
+  {/* function Apple ()
+    {
+      return (<div>Apple component</div>)
+    }
+*/} 
+
+  function Apple ()  //clcik event and fucntion ka example h ye
+    {
+      data="dobbi"
+      //alert ("function call");
+      alert (data);
+    }
+   
+   let data1='Nikita';
+   function UpdateData () {
+      data1="Nawale";
+      alert(data1);
+   } 
+    
+   const [data2,setdata2]=useState("Nikitaaa");
+   function UpdateData1 () {
+      setdata2("Nawalee")
+   } 
+
+   const [name,setName]=useState("Nikitaaa");
+
+  return (
+    <div className="App">
+      <h1>Hello world!</h1>
+      <User /> 
+      <UserClassComponent />
+      {/* <Apple />*/} 
+      <UserJSX /> 
+      {/*<button onClick={Apple()}> Click Me </button>*/}  {/* ///aise button apne aap call hota */}
+     {/* <button onClick={Apple}> Click Me </button> */} {/* ///aise button click hone pe call hota */}
+     {/* <button onClick={()=>alert("hello me hu alert")}> Click Me </button> */} {/*agar idr pe hi directly alert ya function define krna/ use krna h toh arrow function use krna hoga */}
+      
+     <h1>{data} - click event ka example h ye</h1> 
+     <button onClick={Apple}> Click Me </button>  {/* aise use kia toh sirf alert me chnge hoga name ...lekin clcik krne pe screen pe name chnge nhi hota */}
+      <br />
+      <h1>State in react</h1>
+      <h1>{data1}</h1>   {/*  aise screen pe data chnge hota nhi h  , islye state use krte h  */}
+      <button onClick={UpdateData}>Update data</button>
+      <h1>{data2}</h1> 
+      <button onClick={UpdateData1}>Update data</button>
+      <StateWithClassComponent />
+        {/* <Student name="mandira" email="kittymandira@gmail.com" other={{add: 'kalyan', mobile:'007'}}/>
+      <Student name="Nikita" email="nikita.nawale25@gmail.com" other={{add: 'zuzuzu', mobile:'008'}}/>
+      <Student name="shibi" email="shibi@gmail.com" other={{add: 'hghgh', mobile:'005'}}/> */}
+      <Student name={name} />
+      <button onClick={()=>{setName("Mandira")}}>Update name</button>
+    </div>
+  );
+}
+
+export default App;
+
+//JSX ko bina react k b use kr skte h ye
+
+
+///video14
+
+function Student (props) {  ///functional component h ye
+	console.log(props);
+	return (
+		<div style={{backgroundColor: "skyblue", margin:10}}>
+			<h1>Student functional Component - video14</h1>
+			<h1>Hello - {props.name}</h1>
+			{/*<h2>Email: {props.email}</h2>
+			<h3>Address: {props.other.add}</h3> */}
+		</div>
+		)
+}
+
+export default Student
+
+
+//class component k andar useState nhi use kr skte h 

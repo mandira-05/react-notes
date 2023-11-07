@@ -1,0 +1,80 @@
+video 37 - react fragments
+
+<h1> - elemnt h and <User /> ....component
+
+multiple elmenets and components ko handle/wrap krne k liye fragments use krte h 
+
+<Fragment></Fragment>
+
+or <></> use krna h 
+
+toh elemnts me ek element kam hota h 
+
+
+import React,{useState,useEffect} from 'react'
+import logo from './logo.svg';
+import './App.css';
+import User from './Components/User'
+import UserClassComponent from './Components/UserClassComponent'
+import UserJSX from './Components/UserJSX'
+import StateWithClassComponent from './Components/StateWithClassComponent'
+import Student from './Components/Student'
+import StudentWithClassComponent from './Components/StudentWithClassComponent'
+import StudentWithClassComponent1 from './Components/StudentWithClassComponent1'
+import Login from './Components/Login'
+import Video20 from './Components/User-video20'
+import Members from './Components/Members'
+import Video30 from './Components/User-video30-useEffect'
+import './style.css'
+
+import style from './custom.module.css'
+
+import {Button} from 'react-bootstrap'
+import {Table} from 'react-bootstrap'
+
+import Video36 from './Components/Emp-video36'
+import Cols from './Components/Cols'
+
+
+//alert ("jjjjjdk")
+function App() {
+
+  return (
+    <div className="App">
+ 
+      <h1>video 37 - react fragments</h1>
+      <table>
+        <tbody>
+          <tr>
+            <Cols />
+          </tr>
+        </tbody>
+      </table>
+    </div> 
+  );
+}
+
+export default App;
+
+//video 37
+
+function Cols() {
+	return(
+		<div>
+			<td>Meow</td>
+			<td>uwu</td>
+		</div>
+	)
+}
+
+export default Cols;
+
+
+aise <div> me td, table tags likha toh console me error ata h 
+
+tr , td tags..k andar div tags nhi ana chahiye... ye avoid krne k liye hi <></> use krte h 
+
+
+
+
+

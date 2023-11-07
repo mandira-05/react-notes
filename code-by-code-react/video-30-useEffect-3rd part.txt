@@ -1,0 +1,193 @@
+video 30 - use Effect 3rd part
+
+
+
+import React,{useState,useEffect} from 'react'
+import logo from './logo.svg';
+import './App.css';
+import User from './Components/User'
+import UserClassComponent from './Components/UserClassComponent'
+import UserJSX from './Components/UserJSX'
+import StateWithClassComponent from './Components/StateWithClassComponent'
+import Student from './Components/Student'
+import StudentWithClassComponent from './Components/StudentWithClassComponent'
+import StudentWithClassComponent1 from './Components/StudentWithClassComponent1'
+import Login from './Components/Login'
+import Video20 from './Components/User-video20'
+import Members from './Components/Members'
+
+//alert ("jjjjjdk")
+function App() {
+  const[count,setCount]=useState(0);
+
+   return (
+    <div className="App">
+     
+      <User countProps={count} />
+      <button onClick={()=>setCount(count+1)}>Update Counter</button>
+    </div> 
+  );
+}
+
+export default App;
+
+
+import React,{useState,useEffect} from 'react'
+import './App.css';
+
+function User(props) {
+	useEffect(()=>{
+		console.warn("useEffect is called")
+	},[])
+
+	return(
+		<div className="App">
+
+			<h1>User Component {props.countProps}</h1>
+		</div>
+	);
+
+}
+
+export default User;
+
+
+
+dusra part ...ek pe hi use effect chalana
+
+
+import React,{useState,useEffect} from 'react'
+import logo from './logo.svg';
+import './App.css';
+import User from './Components/User'
+import UserClassComponent from './Components/UserClassComponent'
+import UserJSX from './Components/UserJSX'
+import StateWithClassComponent from './Components/StateWithClassComponent'
+import Student from './Components/Student'
+import StudentWithClassComponent from './Components/StudentWithClassComponent'
+import StudentWithClassComponent1 from './Components/StudentWithClassComponent1'
+import Login from './Components/Login'
+import Video20 from './Components/User-video20'
+import Members from './Components/Members'
+
+//alert ("jjjjjdk")
+function App() {
+
+
+  const [data5,setData5]=useState(10);
+  const [count1,setCount1]=useState(100);
+
+  useEffect(()=>{
+    console.warn("use effect called with data");
+  },[data5])
+
+
+  return (
+    <div className="App">
+    
+      <h1>video -30- useEffect </h1>
+      <h1>Count : {count1} </h1>
+      <h1>Data : {data5} </h1>
+      <button onClick={()=>setCount1(count1+1)}>Update Count</button>
+      <button onClick={()=>setData5(data5+1)}>Update daatta 2</button>
+    </div> 
+  );
+}
+
+export default App;
+
+///idr sirf data5 pe useEffect lagay h 
+
+3rd part .... props use kr k use effect
+
+
+import React,{useState,useEffect} from 'react'
+import logo from './logo.svg';
+import './App.css';
+import User from './Components/User'
+import UserClassComponent from './Components/UserClassComponent'
+import UserJSX from './Components/UserJSX'
+import StateWithClassComponent from './Components/StateWithClassComponent'
+import Student from './Components/Student'
+import StudentWithClassComponent from './Components/StudentWithClassComponent'
+import StudentWithClassComponent1 from './Components/StudentWithClassComponent1'
+import Login from './Components/Login'
+import Video20 from './Components/User-video20'
+import Members from './Components/Members'
+import Video30 from './Components/User-video30-useEffect'
+
+
+//alert ("jjjjjdk")
+function App() {
+
+  const [data5,setData5]=useState(10);
+  const [count1,setCount1]=useState(100);
+
+
+  return (
+    <div className="App">
+    
+      <h1>video -30 _2- useEffect </h1>
+      
+      <Video30 count={count1} data = {data5} > </Video30>
+      <button onClick={()=>setCount1(count1+1)}>Update Count</button>
+      <button onClick={()=>setData5(data5+1)}>Update daatta 2</button>
+    </div> 
+  );
+}
+
+export default App;
+
+
+
+//video 30 - use Effect 3rd part
+import React,{useState,useEffect} from 'react'
+
+function Video30(props) {
+  useEffect(()=>{
+    console.warn("use Effect sssf");
+  })
+
+  return (
+
+    <div>
+      <h1>Count Props : {props.count}</h1>
+      <h1>Data Props : {props.data}</h1>
+    </div>
+
+  );
+
+}
+
+export default Video30;
+
+
+sirf ek hi props pe useEffect
+
+import React,{useState,useEffect} from 'react'
+
+function Video30(props) {
+ // useEffect(()=>{
+  //  console.warn("use Effect sssf");
+  //})
+
+  useEffect(()=>{
+    alert("count is " +props.count);
+  },[props.count])
+
+
+  return (
+
+    <div>
+      <h1>Count Props : {props.count}</h1>
+      <h1>Data Props : {props.data}</h1>
+    </div>
+
+  );
+
+}
+
+export default Video30;
+
+useEffect k andar b useSttate use kr skte h ..lekin conditonal me use krna hoga
+

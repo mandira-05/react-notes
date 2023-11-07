@@ -1,0 +1,98 @@
+video 11
+
+state in functional component 
+
+--
+
+state ek object hota h ..jo ek data store krta h 
+
+state se hi hum data chnge kr skte h variable ka
+
+import logo from './logo.svg';
+import './App.css';
+import User from './Components/User'
+import UserClassComponent from './Components/UserClassComponent'
+import UserJSX from './Components/UserJSX'
+import React,{useState} from 'react'
+
+//alert ("jjjjjdk")
+function App() {
+
+
+  let data="MEWOOW"
+  {/* function Apple ()
+    {
+      return (<div>Apple component</div>)
+    }
+*/} 
+
+  function Apple ()  //clcik event and fucntion ka example h ye
+    {
+      data="dobbi"
+      //alert ("function call");
+      alert (data);
+    }
+   
+   let data1='Nikita';
+   function UpdateData () {
+      data1="Nawale";
+      alert(data1);
+   } 
+    
+   const [data2,setdata2]=useState("Nikitaaa");
+   function UpdateData1 () {
+      setdata2("Nawalee")
+   } 
+
+  return (
+    <div className="App">
+      <h1>Hello world!</h1>
+      <User /> 
+      <UserClassComponent />
+      {/* <Apple />*/} 
+      <UserJSX /> 
+      {/*<button onClick={Apple()}> Click Me </button>*/}  {/* ///aise button apne aap call hota */}
+     {/* <button onClick={Apple}> Click Me </button> */} {/* ///aise button click hone pe call hota */}
+     {/* <button onClick={()=>alert("hello me hu alert")}> Click Me </button> */} {/*agar idr pe hi directly alert ya function define krna/ use krna h toh arrow function use krna hoga */}
+      
+     <h1>{data} - click event ka example h ye</h1> 
+     <button onClick={Apple}> Click Me </button>  {/* aise use kia toh sirf alert me chnge hoga name ...lekin clcik krne pe screen pe name chnge nhi hota */}
+      <br />
+      <h1>State in react</h1>
+      <h1>{data1}</h1>   {/*  aise screen pe data chnge hota nhi h  , islye state use krte h  */}
+      <button onClick={UpdateData}>Update data</button>
+      <h1>{data2}</h1> 
+      <button onClick={UpdateData1}>Update data</button>
+    </div>
+  );
+}
+
+export default App;
+
+//JSX ko bina react k b use kr skte h ye
+
+
+//setState use krna h 
+
+function App() {
+
+
+  let data="MEWOOW"
+
+     
+   const [data2,setdata2]=useState(0);
+   function UpdateData1 () {
+      setdata2(data2+1)
+   } 
+
+  return (
+    <div className="App">
+ 
+      <h1>{data2}</h1> 
+      <button onClick={UpdateData1}>Update data</button>
+    </div>
+  );
+}
+
+export default App;
+

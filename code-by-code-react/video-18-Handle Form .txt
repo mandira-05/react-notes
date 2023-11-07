@@ -1,0 +1,61 @@
+video-18 Handle Form 
+
+form data ko get krna h 
+
+
+
+
+
+import React,{useState} from 'react'
+import logo from './logo.svg';
+import './App.css';
+import User from './Components/User'
+import UserClassComponent from './Components/UserClassComponent'
+import UserJSX from './Components/UserJSX'
+import StateWithClassComponent from './Components/StateWithClassComponent'
+import Student from './Components/Student'
+import StudentWithClassComponent from './Components/StudentWithClassComponent'
+import StudentWithClassComponent1 from './Components/StudentWithClassComponent1'
+
+
+//alert ("jjjjjdk")
+function App() {
+
+
+
+  const[status,setStatus]=useState(true)
+
+  function getFormData(e) {
+    console.warn(name1,tnc,interest);
+    e.preventDefault();  //form ko submit hone se prevent krta h 
+  }
+
+  const[name1,setName1]=useState("");
+  const[tnc,setTnc]=useState(false);
+  const[interest,setInterest]=useState("");
+
+  return (
+    <div className="App">
+  
+      
+      <h1>video-18-handle form data</h1>
+      <form onSubmit={getFormData}>
+        <input type="text" placeholder="enter name" 
+        onChange={(e)=>setName1(e.target.value)}/> <br /> <br />
+        <select onChange={(e)=>setInterest(e.target.value)}>
+          <option>Select Option</option>
+          <option>DC</option>
+          <option>Marvel</option>
+        </select> <br/><br/>
+        <input type="checkbox" onChange={(e)=>setTnc(e.target.checked)}/> <span>Accept terms and conditions</span>
+        <br/><br/>
+        <button type="submit">Submit</button>
+      </form>
+    </div> 
+  );
+}
+
+export default App;
+
+
+

@@ -1,0 +1,60 @@
+video 61 - 404 page not found
+
+jab koi aise page ko access krna chahta h jo humne banaya hi nhi h ...waha pe 404 page dikhate h 
+
+import './App.css';
+import React from 'react'
+import { BrowserRouter as Router, Link, Route,Switch } from 'react-router-dom'
+function App() {
+  return (
+    <div className="App">
+      <Router>
+        <Link to="/" >Home</Link>
+        <br></br>
+        <Link to="/about" >About</Link>
+	<br></br>
+	<Link to="/login" >Login</Link> //...isko access kia toh error ana chahiye
+	<Switch>  ///jab b Route tag use krte h atb Swtich b use krna chahiye
+        	<Route path="/" exact={true} > <Home /></Route>
+        	<Route path="/about" > <PageNot /></Route>
+
+		<Route path="/*" > <PageNotFound /></Route>  //agar koi b page match nhi hota toh..page 404 dikhana h ... islye * use kia h
+	</Switch>
+      </Router>
+    </div>
+  );
+}
+
+
+function Home() {
+  return (
+    <div>
+      <h1>Home Page</h1>
+      <p>This is my Home Page</p>
+    </div>
+  )
+}
+function About() {
+  return (
+    <div>
+      <h1>About Page</h1>
+      <p>This is my About Page</p>
+    </div>
+  )
+}
+
+function PageNotFound() {
+  return (
+    <div>
+      <h1>404t Page</h1>
+      <p>This is not found</p>
+    </div>
+  )
+}
+
+export default App;
+
+
+local:3000/user ...dala url me toh ...page not found wal page dikehga
+//agar link k jagah <a href="/about">About</a>
+//toh page reload hota h ..islye <link> tags use krte h 

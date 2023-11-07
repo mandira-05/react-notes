@@ -1,0 +1,201 @@
+video 34 - list kaise show kr skte h ..with bootstrap table se
+
+
+import React,{useState,useEffect} from 'react'
+import logo from './logo.svg';
+import './App.css';
+import User from './Components/User'
+import UserClassComponent from './Components/UserClassComponent'
+import UserJSX from './Components/UserJSX'
+import StateWithClassComponent from './Components/StateWithClassComponent'
+import Student from './Components/Student'
+import StudentWithClassComponent from './Components/StudentWithClassComponent'
+import StudentWithClassComponent1 from './Components/StudentWithClassComponent1'
+import Login from './Components/Login'
+import Video20 from './Components/User-video20'
+import Members from './Components/Members'
+import Video30 from './Components/User-video30-useEffect'
+import './style.css'
+
+import style from './custom.module.css'
+
+import {Button} from 'react-bootstrap'
+
+//alert ("jjjjjdk")
+function App() {
+
+  const students = ['Mandira','Nikita','Asta','Yuno']
+  //map looping
+
+  students.map((item)=>{
+    console.warn("My name is: " ,item);
+  })
+
+  for (let i=0;i<students.length;i++) {
+    console.warn("in loop My name is : ", students[i])
+  }
+
+  const emp=[
+
+    {name:"mandira",email:"meow@gmail.com",contact:765},
+    {name:"nikita",email:"nikita@gmail.com",contact:754},
+    {name:"asta",email:"asta@gmail.com",contact:863},    
+    {name:"yuno",email:"yuno@gmail.com",contact:463} 
+  ]
+
+
+
+  return (
+    <div className="App">
+     
+      <h1 >Video34 - list with bootstrap</h1>
+      <table>
+      <tr>
+            <td>name</td>
+            <td>email</td>
+            <td>contact</td>
+      </tr>
+      {
+        emp.map((item)=>
+          <tr>
+            <td>{item.name}</td>
+            <td>{item.email}</td>
+            <td>{item.contact}</td>                        
+          </tr>
+          )
+      }
+      </table>
+    </div> 
+  );
+}
+
+export default App;
+
+pehle ek table banaya h 
+
+
+console me 2 errors aate h 
+
+ek unique key wala problm ata h 
+{
+        emp.map((item)=>
+          <tr>
+            <td>{item.name}</td>
+            <td>{item.email}</td>
+            <td>{item.contact}</td>                        
+          </tr>
+          )
+      }
+
+isme har ek element
+
+identify krne k liye ek alag key chahiye hota
+key nhi dia toh virtual dom thik se chlta nhi
+
+<h1 >Video34 - list with bootstrap</h1>
+      <table>
+      <tr>
+            <td>name</td>
+            <td>email</td>
+            <td>contact</td>
+      </tr>
+      {
+        emp.map((item,i)=>
+          <tr key={i}>
+            <td>{item.name}</td>
+            <td>{item.email}</td>
+            <td>{item.contact}</td>                        
+          </tr>
+          )
+      }
+      </table>
+
+2nd error ilsye ara q ki html thik se likha nhi h 
+
+<tbody> dalna chahiye tha
+
+<h1 >Video34 - list with bootstrap</h1>
+      <table>
+      <tbody>
+      <tr>
+            <td>name</td>
+            <td>email</td>
+            <td>contact</td>
+      </tr>
+      {
+        emp.map((item,i)=>
+          <tr key={i}>
+            <td>{item.name}</td>
+            <td>{item.email}</td>
+            <td>{item.contact}</td>                        
+          </tr>
+          )
+      }
+      </tbody>
+      </table>
+
+ye dono krne k baad errors jaate h 
+
+abi table ko acha bada krne k liye table taag me T caps me rakhna
+
+<h1 >Video34 - list with bootstrap</h1>
+      <Table striped bordered hover>
+      <tbody>
+      <tr>
+            <td>name</td>
+            <td>email</td>
+            <td>contact</td>
+      </tr>
+      {
+        emp.map((item,i)=>
+          <tr key={i}>
+            <td>{item.name}</td>
+            <td>{item.email}</td>
+            <td>{item.contact}</td>                        
+          </tr>
+          )
+      }
+      </tbody>
+      </Table>
+
+
+agar sirf koi field ki particular value hi dikhani h toh .... usko b daal skte h loop me condtion k sath
+
+import './App.css';
+import React from 'react'
+import {Table} from 'react-bootstrap'
+function App() {
+  const users = [
+    { name: 'Anil', email: 'anil@test.com', contact: '111' },
+    { name: 'Burce', email: 'bruce@test.com', contact: '222' },
+    { name: 'Peter', email: 'peter@test.com', contact: '111' },
+    { name: 'Sam', email: 'sam@test.com', contact: '777' },
+  ]
+  return (
+    <div className="App">
+      <h1>List With Bootstrap Table</h1>
+      <Table striped variant="dark" >
+        <tbody>
+        <tr>
+          <td>Name</td>
+          <td>Email</td>
+          <td>Contacts</td>
+        </tr>
+        {
+          users.map((item,i)=>
+          item.contact==='111'?
+          <tr key={i}>
+          <td>{item.name}</td>
+          <td>{item.email}</td>
+        <td>{item.contact}</td>
+        </tr>:null
+          )
+        }
+        </tbody>
+      </Table>
+    </div>
+  );
+}
+
+export default App;
+

@@ -1,0 +1,26 @@
+video#16
+
+conditional rendering 
+
+mtlb html ka kuch hide krna hoga toh
+same if/else k jaise
+
+4 ways to to conditional rendering
+
+if/else
+elements variables
+ternary conditional operator
+short circuit operator
+
+//1st way for conditional rendering
+//if looged in h toh wleocme mandira dikhna chahiye
+//isloogedin true kia toh welcome mandira dikhta h 
+
+//2nd way for conditional rendering
+//use js variables to render entire comp or a part
+
+//3rd way for conditional rendering
+//recommended
+
+//4th way
+//welcome mandira show krna h ya toh kuch b nhi

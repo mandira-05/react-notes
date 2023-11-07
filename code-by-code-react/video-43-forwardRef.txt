@@ -1,0 +1,54 @@
+//video 43 - forwardRef
+
+
+ref ka advance h 
+
+ref ek hi var ka dom modify krre the
+
+lekin jab 2 elemt alag component me h ..tab forwardRef use krte h  
+
+parent compoonent me forwardRef use krte h 
+
+aur jo child compont h usko parent component me call kia h..usi tag me ref use kia h 
+
+yaha pe parent compo me button and child comp me txt box h 
+
+
+child component me b forwardRef call krna padta h 
+
+import React,{forwardRef} from 'react'
+function User(props,ref)
+{
+    return(
+        <div>
+            <input ref={ref} type="text" />
+        </div>
+    )
+}
+
+export default forwardRef(User);
+
+import './App.css';
+import React ,{useRef} from 'react'
+import User from './User'
+function App() {
+  let inputRef=useRef(null)
+  function updateInput()
+  {
+    inputRef.current.value="1000";
+    inputRef.current.style.color="red"
+    inputRef.current.focus()
+
+
+  }
+  return (
+    <div className="App">
+      <h1>forwardRef in React </h1>
+      <User ref={inputRef} />
+      <button onClick={updateInput} >Update Input Box</button>
+    </div>
+  );
+
+}
+export default App;
+

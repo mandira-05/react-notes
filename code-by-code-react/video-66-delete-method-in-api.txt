@@ -1,0 +1,65 @@
+video 66 - Delete Method in api
+
+ek record ko delet krne k liye use krte h 
+
+import './App.css';
+import React,{useEffect,useState} from 'react'
+function App() {
+  const [users,setUser]=useState([])
+  useEffect(()=>{
+    
+  },[])
+  console.warn(users)
+  
+  function getList(){
+  	fetch("http://localhost:4000/todo").then((result)=>{  //api call krte h toh ftech method call krte h ...aur ye API ka url h 
+      result.json().then((resp)=>{
+        // console.warn(resp)
+        setUser(resp)
+      })
+    })
+   }
+  
+  function deleteUser(id) {
+	fetch(`http://localhost:4000/todo/${id}`,{
+	method:'DELETE'})
+	}).then((result)=>{
+		result.json().then((resp)=>{
+		console.warn(resp)
+		getList();
+	})
+       })
+      }	
+
+  return (
+    <div className="App">
+      <h1>Get API Call </h1>
+      <table border="1">
+       <tbody>
+       <tr>
+          <td>ID</td>
+          <td>Name</td>
+          <td>Email</td>
+          <td>Mobile</td>
+        </tr>
+        {
+          users.map((item,i)=>
+            <tr key={i}>
+            <td>{item.userId}</td>
+            <td>{item.name}</td>
+            <td>{item.email}</td>
+            <td>{item.mobile}</td>
+            <td><button onClick={()=>deleteUser(item.id)}>Delete</button></td>	
+          </tr>
+          )
+        }
+       </tbody>
+      </table>
+    </div>
+  );
+}
+export default App;
+
+
+get req k andar body nhi bhj skte h 
+

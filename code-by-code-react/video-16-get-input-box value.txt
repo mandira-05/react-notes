@@ -1,0 +1,132 @@
+video3 16 - get input box value
+
+data jaise i/p box me dalte h uska value show krna h 
+
+import React,{useState} from 'react'
+import logo from './logo.svg';
+import './App.css';
+import User from './Components/User'
+import UserClassComponent from './Components/UserClassComponent'
+import UserJSX from './Components/UserJSX'
+import StateWithClassComponent from './Components/StateWithClassComponent'
+import Student from './Components/Student'
+import StudentWithClassComponent from './Components/StudentWithClassComponent'
+import StudentWithClassComponent1 from './Components/StudentWithClassComponent1'
+
+
+//alert ("jjjjjdk")
+function App() {
+
+
+
+   const [data4,setData4]=useState(null);
+  
+   function getData(val) {
+
+    console.log(val.target.value);
+    setData4(val.target.value) ;
+   }
+
+  return (
+    <div className="App">
+ 
+      <h1>{data4}</h1>
+      <input type="text" onChange={getData}/>
+    </div>
+  );
+}
+
+export default App;
+
+
+....abi on click pe kaise value chnge krna h 
+
+
+
+
+import React,{useState} from 'react'
+import logo from './logo.svg';
+import './App.css';
+import User from './Components/User'
+import UserClassComponent from './Components/UserClassComponent'
+import UserJSX from './Components/UserJSX'
+import StateWithClassComponent from './Components/StateWithClassComponent'
+import Student from './Components/Student'
+import StudentWithClassComponent from './Components/StudentWithClassComponent'
+import StudentWithClassComponent1 from './Components/StudentWithClassComponent1'
+
+
+//alert ("jjjjjdk")
+function App() {
+
+
+  let data="MEWOOW"
+  {/* function Apple ()
+    {
+      return (<div>Apple component</div>)
+    }
+*/} 
+
+  function Apple ()  //clcik event and fucntion ka example h ye
+    {
+      data="dobbi"
+      //alert ("function call");
+      alert (data);
+    }
+   
+   let data1='Nikita';
+   function UpdateData () {
+      data1="Nawale";
+      alert(data1);
+   } 
+    
+   const [data2,setdata2]=useState("Nikitaaa");
+   function UpdateData1 () {
+      setdata2("Nawalee")
+   } 
+
+   const [name,setName]=useState("Nikitaaa");
+
+   const [data4,setData4]=useState(null);
+   const [print,setPrint]=useState(false);
+
+   function getData(val) {
+
+    console.log(val.target.value);
+    setData4(val.target.value) ;
+    setPrint(false) ;
+   }
+
+  return (
+    <div className="App">
+   
+
+      <h1>click hone pe value chnge krna h-video 16</h1>
+      {
+        print?
+        <h1>{data4}</h1>
+        :null
+      }
+
+      <input type="text" onChange={getData}/>
+      <button onClick={()=>setPrint(true)}>Print data</button>
+
+    </div>
+  );
+}
+
+export default App;
+
+
+//props k andar hum html ko send krte h this.props.children use krna hoga
+
+
+
+
+
+
+
+
+
+
+//JSX ko bina react k b use kr skte h ye

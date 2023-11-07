@@ -1,0 +1,204 @@
+video 33- handle array with list
+
+map q use krna h aray me
+
+
+return stmtn me map support hota h ... for loop nhi
+import React,{useState,useEffect} from 'react'
+import logo from './logo.svg';
+import './App.css';
+import User from './Components/User'
+import UserClassComponent from './Components/UserClassComponent'
+import UserJSX from './Components/UserJSX'
+import StateWithClassComponent from './Components/StateWithClassComponent'
+import Student from './Components/Student'
+import StudentWithClassComponent from './Components/StudentWithClassComponent'
+import StudentWithClassComponent1 from './Components/StudentWithClassComponent1'
+import Login from './Components/Login'
+import Video20 from './Components/User-video20'
+import Members from './Components/Members'
+import Video30 from './Components/User-video30-useEffect'
+import './style.css'
+
+import style from './custom.module.css'
+
+import {Button} from 'react-bootstrap'
+
+//alert ("jjjjjdk")
+function App() {
+
+  const students = ['Mandira','Nikita','Asta','Yuno']
+  //map looping
+
+  students.map((item)=>{
+    console.warn("My name is: " ,item);
+  })
+
+  for (let i=0;i<students.length;i++) {
+    console.warn("in loop My name is : ", students[i])
+  }
+  return (
+    <div className="App">
+    
+      <h1 >Video33 -handle array with list</h1>
+      {
+        students.map((data)=>
+          <h1>Name is : {data}</h1>
+        )
+      }
+    </div> 
+  );
+}
+
+export default App;
+
+2nd example
+
+
+import React,{useState,useEffect} from 'react'
+import logo from './logo.svg';
+import './App.css';
+import User from './Components/User'
+import UserClassComponent from './Components/UserClassComponent'
+import UserJSX from './Components/UserJSX'
+import StateWithClassComponent from './Components/StateWithClassComponent'
+import Student from './Components/Student'
+import StudentWithClassComponent from './Components/StudentWithClassComponent'
+import StudentWithClassComponent1 from './Components/StudentWithClassComponent1'
+import Login from './Components/Login'
+import Video20 from './Components/User-video20'
+import Members from './Components/Members'
+import Video30 from './Components/User-video30-useEffect'
+import './style.css'
+
+import style from './custom.module.css'
+
+import {Button} from 'react-bootstrap'
+
+//alert ("jjjjjdk")
+function App() {
+
+
+  let data="MEWOOW"
+  {/* function Apple ()
+    {
+      return (<div>Apple component</div>)
+    }
+*/} 
+
+  function Apple ()  //clcik event and fucntion ka example h ye
+    {
+      data="dobbi"
+      //alert ("function call");
+      alert (data);
+    }
+   
+  let data1='Nikita';
+  function UpdateData () {
+      data1="Nawale";
+      alert(data1);
+  } 
+    
+  const [data2,setdata2]=useState("Nikitaaa");
+  function UpdateData1 () {
+    setdata2("Nawalee")
+  } 
+
+  const [name,setName]=useState("Nikitaaa");
+
+  const [data4,setData4]=useState(null);
+  const [print,setPrint]=useState(false);
+
+  function getData(val) {
+
+    console.log(val.target.value);
+    setData4(val.target.value) ;
+    setPrint(false) ;
+  }
+
+  const[status,setStatus]=useState(true)
+
+  function getFormData(e) {
+    console.warn(name1,tnc,interest);
+    e.preventDefault();  //form ko submit hone se prevent krta h 
+  }
+
+  const[name1,setName1]=useState("");
+  const[tnc,setTnc]=useState(false);
+  const[interest,setInterest]=useState("");
+
+   function getData1() {
+
+    alert("hello from app");
+  }
+
+  const[count,setCount]=useState(0);
+
+  useEffect(()=>{
+    //alert("Use Effect")
+    console.warn("Use Effect"); //componentdidMount jaice call ho jayega
+
+  })
+
+  const [data5,setData5]=useState(10);
+  const [count1,setCount1]=useState(100);
+
+ // useEffect(()=>{
+ //   console.warn("use effect called with data");
+//  },[data5])
+
+ //useEffect(()=>{
+ //   alert("count is " +count1);
+ // },[count1])
+
+  const students = ['Mandira','Nikita','Asta','Yuno']
+  //map looping
+
+  students.map((item)=>{
+    console.warn("My name is: " ,item);
+  })
+
+  for (let i=0;i<students.length;i++) {
+    console.warn("in loop My name is : ", students[i])
+  }
+
+  const emp=[
+
+    {name:"mandira",email:"meow@gmail.com",contact:765},
+    {name:"nikita",email:"nikita@gmail.com",contact:754},
+    {name:"asta",email:"asta@gmail.com",contact:863},    
+    {name:"yuno",email:"yuno@gmail.com",contact:463} 
+  ]
+
+
+
+  return (
+    <div className="App">
+     
+      <h1 >Video33 -handle array with list</h1>
+      <table border="1">
+      <tr>
+            <td>name</td>
+            <td>email</td>
+            <td>contact</td>
+      </tr>
+
+      {
+        emp.map((data)=>
+          <tr>
+            <td>{data.name}</td>
+            <td>{data.email}</td>
+            <td>{data.contact}</td>
+          </tr>
+        )
+      }
+</table>
+    </div> 
+  );
+}
+
+export default App;
+
+//JSX ko bina react k b use kr skte h ye
+
+

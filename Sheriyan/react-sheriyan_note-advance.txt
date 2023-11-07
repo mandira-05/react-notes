@@ -1,0 +1,667 @@
+react js part2 - advance
+
+1]two way binding
+
+directly html code likha..input tag me toh ..hum directly contnt daal rhe h txtbox me..and react ko pta nhi h ye
+
+islye ab useState use krna h 
+
+useState react me variables banane k liye use krte h ..jab useState use krte h usko import krne k saath upr "use client" b likhna padta h 
+
+value ={username}  ..ye name alag leta h h ...jis k wajah se main waale me chnge hota h 
+
+ye onchange function me h 
+console.log(e.target.value)  -- ye type krne se..hum jo txtbox me type krre h wo console me dikhta h 
+
+setUsername(e.target.value) ..islye ye use krre h ..jisse console me ek saath dikhta h 
+
+"use client"
+import React,{useState} from 'react'
+
+const page = () => {
+  const [username,setUsername] = useState("")
+  return (
+
+    <div>
+      <h1 className="mb-5 text-2xl">Enter your name: </h1>
+      <form>
+        <input type="text" className="border-2 border-zinc-800 
+        px-4 py-2 text-xl" 
+        value ={username}
+        onChange={(e) => {
+          {/*console.log(e.target.value) */}
+          setUsername(e.target.value)
+          console.log(username)
+        }}
+        />
+      </form>
+    </div>
+    )
+}
+
+export default page
+
+ye code tha two way bindning ka
+
+2] Dynamic routing
+
+routing ka explanation dekhna pehle ..
+
+pehle ek button banaya getdata naam ka
+
+abi data milne k liye ...api call krege ...
+
+https://jsonplaceholder.typicode.com/users  ..ye url uthaya h 
+
+ab getuser ka function banaya upr
+
+abi cmd me axios ko install krna h 
+npm i axios dalna cmd me
+
+getuser function ko async function banaya h 
+
+and usme axios and url use kia  h ..api ko call krne ko...
+console me button click krne pe data dikhega
+
+setUsers me data ko dala h
+
+ye fucntion hone k baad ..isme map function dalege
+
+{users.map((e) => {
+            return(
+              <li>
+                {e.username}  --- <Link>Explore    </Link>          
+
+              </li>
+
+              
+          })}
+
+users.map ko ek alag varaible me hi le lia h ..
+
+abi dynamic routing k liye
+
+app folder k andar hi [id] folder banaya and usme page.js folder banaya
+
+abi fir se user.map function me <a> tage me e.id ki link di h 
+fir hum har name k aage jo Expplore likha h uspe clikc kiya toh dusre page pe jata h 
+
+and url b chnge hota localhost:3000/1  ..ata h agar first name pe click kia toh
+
+useEffect - koi piece of code ko koi situation k hisab se update krta h 
+
+useEffect use krne pe button click nhi krna padta...data apne aap show hoga...
+pehle get data button click krne pe data show hota tha
+
+useEffect function k andar getusers call kia h 
+
+ab id folder me page.js h usme likhna h 
+ const {id} = params;
+    const [users,setUsers] = useState([])
+    const getUsers = async() => {
+    
+    const res = await axios.get("https://jsonplaceholder.typicode.com/users")
+    const data = res.data
+    //console.log(data)
+    setUsers(data)
+  }
+  
+  useEffect (() => {
+    getUsers()
+  }, [])
+ 
+ye content dalna id folder k page.js me
+
+fir niche k return method me pehle div tags me 
+page {id}  
+
+pass kia tha... jisse hum koi b name k expolre pe click krte toh
+us page ka id dikhta h 
+
+const res me jo url h usme last me / dalna h ...nhi toh error ata h 
+
+abi niche k return method me {data.username} dala toh data not defined ayega 
+
+islye getUsers k function me setUsers me data pass kia h and niche k return method me users pass kia
+
+"use client"
+import React,{useEffect,useState} from 'react';
+import axios from 'axios';
+import Link from 'next/Link';
+
+const page = ({params}) => {
+   //console.log(params.id);
+  const {id} = params;
+  const [users,setUsers] = useState([])
+    const getUsers = async() => {
+    
+      const res = await axios.get("https://jsonplaceholder.typicode.com/users/" +id)
+      const data = res.data
+      setUsers(data.username)
+      //console.log(data.username)
+      //console.log(data)
+  }
+  
+  useEffect (() => {
+    getUsers()
+  }, [])
+ 
+
+
+
+  return (
+    
+
+    <div>page {users}</div>
+    )
+}
+
+export default page
+
+ye code se ... user name dikhega 
+
+ab fir const [users,setUsers] = useState([]) me array lia tha
+usko const [users,setUsers] = useState("")  lia h .. pura data show karane k liye 
+
+aur niche k return method me ab JSONstrigify dalna h 
+
+fir abi jo user pe click krte h uska pura info dikega
+"use client"
+import React,{useEffect,useState} from 'react';
+import axios from 'axios';
+import Link from 'next/Link';
+
+const page = ({params}) => {
+   //console.log(params.id);
+  const {id} = params;
+  const [users,setUsers] = useState([])
+    const getUsers = async() => {
+    
+      const res = await axios.get("https://jsonplaceholder.typicode.com/users/" +id)
+      const data = res.data
+      setUsers(data)
+      //setUsers(data.username)
+      //console.log(data.username)
+      //console.log(data)
+  }
+  
+  useEffect (() => {
+    getUsers()
+  }, [])
+ 
+
+
+
+  return <>{JSON.stringify(users)}</> 
+    
+};
+
+export default page
+
+ye complete code h page.js ka jo [id] folder me h 
+
+"use client"
+import React,{useEffect,useState} from 'react';
+import axios from 'axios';
+import Link from 'next/Link'
+
+const page = () => {
+  const [users,setUsers] = useState([])
+  const getUsers = async() => {
+    
+    const {data} = await axios.get("https://jsonplaceholder.typicode.com/users")
+    //const data = res.data
+    //console.log(data)
+    setUsers(data)
+  }
+
+  let a = users.map((e) => {
+    return(
+        <li>
+          {e.username} --- <a href={`/${e.id}`}>Explore</a>
+        </li>
+      )
+  })
+
+  useEffect (() => {
+    getUsers()
+  }, [])
+
+  return (
+
+    <div>
+      <button onClick={getUsers} className='bg-green-600 text-white 
+      px-4 py-2 rounded font-bold'>Get Data</button>
+      <div className='p-8 bg-slate-100 mt-5'>
+        <ul>
+          {a}
+        </ul>  
+      </div>
+    </div>
+    )
+}
+
+export default page
+
+
+ye app folder ka page.js h 
+
+...next topic - Context API
+
+pehle page.js me Header.js component ko pass krne k baad and Nav.js ko Header me import kia
+
+nav bar banaya h pehle
+
+
+fir abi page.js me useState ka variable banaya h
+
+<Header num ={num}  aur ye likha
+
+abi header.js me props use krna taaki wo data receive ho
+
+fir header se wo data nav.js me pass krna h 
+
+mtlb main home page ka data..header me bheja..fir wo data nav me bheja...
+
+lekin apne ko data homepage se direct nav page me dalna tha
+
+ye aise data flow ko avoid krne k liye contxt api use krte h 
+
+jo data hota h ..usko ek contxt me store krte h ..taaki koi page...header,homepage, nav bar access kr sake directly
+
+chote projects me contxt api use hota h...bade aur complex project me redux tool kit use krte h 
+
+"use client"
+import React,{ useState } from 'react';
+import Header from '@/Components/Header'
+
+const page = () => {
+  
+  const [num,setNum] = useState(10);
+  return (
+
+    <div>
+      
+      <Header num ={num} />
+    </div>
+    )
+}
+
+export default page
+
+ye page.js ka code h 
+
+import React from 'react';
+import Nav from './Nav'
+
+const Header = (props) => {
+  //console.log(props.num)
+
+  return (
+
+    <div className='bg-green-200 p-5'>
+      jaate nhi kahi rishte purane
+      <Nav num={props.num}  />
+    </div>
+    )
+}
+
+export default Header
+
+ye Header ka code h jo components folder me h 
+
+
+import React from 'react';
+
+
+const Nav = (props) => {
+  console.log(props.num)
+
+  return (
+
+    <div className='bg-red-200'>
+      Navigation bar 
+      {props.num}
+    </div>
+    )
+}
+
+export default Nav
+
+ye nav ka code h jo componenets folder me h 
+
+abi contxt banate kaise
+
+Helper ek folder bana k usme context.js ka file banana h 
+
+usme ab MyContent ek variable banaya jo container h and usme createContext ka function pass kia
+
+ek username ka variable banaya and return function me div tags me 
+
+<MyContext.Provider>
+        {children}
+      </MyContext.Provider>
+
+dala h 
+
+layout.js me Conext.js pass kia h 
+
+import MyContext from "@/Helper/Context"
+import './globals.css';
+
+
+export const metadata = {
+  title: 'Create Next App',
+  description: 'Generated by create next app',
+}
+
+export default function RootLayout({ children }) {
+  
+  return (
+    <html lang="en">
+      <body suppressHydrationWarning >
+      {/*{children} */}
+        <MyContext>
+          {children}
+        <MyContext/>          
+      </body>
+    </html>
+  )
+}
+
+and page.js me b contxt pass kia h 
+
+"use client"
+import React,{ useState,useContext } from 'react';
+import Header from '@/Components/Header'  ///pehle k example me use kia tha ye
+import {MyContext} from "@/Helper/Context"
+
+const page = () => {
+  
+  //const [num,setNum] = useState(10);
+
+  const user = useContext(MyContext)
+  //console.log(user);
+
+  return (
+
+    <div>
+      
+      {/*<Header num ={num} /> */}
+     {/* Homepage    */}
+      {user}
+      
+    </div>
+    )
+}
+
+export default page
+
+
+
+Header.js me b conxt pass kia h 
+
+
+"use client"
+import React,{ useState,useContext } from 'react';
+
+import Nav from './Nav'
+import {MyContext} from "@/Helper/Context"
+
+const Header = (props) => {
+  //console.log(props.num)
+  const user = useContext(MyContext)
+
+  return (
+
+    <div className='bg-green-200 p-5'>
+     {/*  jaate nhi kahi rishte purane
+      <Nav num={props.num}  /> */}
+      {user}
+    </div>
+    )
+}
+
+export default Header
+
+
+ye final codes h -
+
+
+"use client"
+import React,{ useState,useContext } from 'react';
+import Header from '@/Components/Header'  ///pehle k example me use kia tha ye
+import {MyContext} from "@/Helper/Context"
+
+const page = () => {
+  
+  //const [num,setNum] = useState(10);
+
+  const user = useContext(MyContext)
+  //console.log(user);
+
+  return (
+
+    <div>
+      
+      {/*<Header num ={num} /> */}
+     {/* Homepage    */}
+      {user}
+      <Header />
+    </div>
+    )
+}
+
+export default page
+
+ye page.js h 
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  padding: 50px;
+}
+
+ye globals.css h
+
+"use client"
+import React,{ useState,useContext } from 'react';
+
+import Nav from './Nav'
+import {MyContext} from "@/Helper/Context"
+
+const Header = (props) => {
+  //console.log(props.num)
+  const user = useContext(MyContext)
+
+  return (
+
+    <div className='bg-green-200 p-5'>
+     {/*  jaate nhi kahi rishte purane
+      <Nav num={props.num}  /> */}
+      {user}
+    </div>
+    )
+}
+
+export default Header
+
+ye Header.js h
+
+import React from 'react';
+
+
+const Nav = (props) => {
+  console.log(props.num)
+
+  return (
+
+    <div className='bg-red-200'>
+      Navigation bar 
+      {props.num}
+    </div>
+    )
+}
+
+export default Nav
+
+ye nav.js h 
+
+"use client"
+import React, { createContext } from 'react';
+
+export const MyContext = createContext()
+
+const Context = ({children}) => {
+  
+  const username = "mandira meow"
+  return (
+
+    <div>
+     
+      <MyContext.Provider value={username}>
+        {children}
+      </MyContext.Provider>
+    </div>
+    )
+}
+
+export default Context
+
+ye Context.js h 
+
+
+import MyContext from "@/Helper/Context"
+import './globals.css';
+
+export const metadata = {
+  title: 'Mandira',
+  description: 'Generated by create next app',
+};
+
+export default function RootLayout({ children }) {
+  
+  return (
+    <html lang="en">
+      <body suppressHydrationWarning >
+      {/*{children} */}
+        <MyContext>
+          {children}
+        </MyContext>          
+      </body>
+    </html>
+  );
+}
+
+ye layout.js h 
+
+
+
+
+contx humko jis component k liye chahaiye wahi pe import krna...aur sab componenets ko access nhi dena h toh
+
+
+...Showing flash message (react toastify) ...next topic
+
+ek library ..jisse flash messages dikhte h 
+
+ek login button banaya , jab ye button pe click krege toh wo flash msg ana chahiye
+
+pehle isntall krna h react toastify
+
+aur import krna h page.js me 
+
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+<ToastContainer /> dala h niche return method me aur button me notify function ko call kia h 
+
+aur ab waisa msg displaye hone k liye notify function me toast("login successful") dalna..
+toh ab login pe click krne pe ye show hoga hi
+
+
+"use client"
+import React,{ useState,useContext } from 'react';
+import Header from '@/Components/Header'  ///pehle k example me use kia tha ye
+import {MyContext} from "@/Helper/Context"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+const page = () => {
+  const notify = () => {
+    //console.log("heheheh")
+    //toast("Login successful");
+    toast.success('🦄 Wow so easy!', {
+    position: "bottom-left",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+});
+
+  }
+  
+  //const [num,setNum] = useState(10);
+
+  //const user = useContext(MyContext)
+  //console.log(user);
+
+  return (
+
+    <div>
+      <button onClick={notify}>Login</button>
+      <ToastContainer />
+    </div>
+    )
+}
+
+export default page
+
+ye page.js jo app folder me h uska code h 
+
+{/*@tailwind base;
+@tailwind components;
+@tailwind utilities;
+*/}
+
+
+
+body {
+  padding: 20px;
+}
+
+button {
+  padding: 15px 30px;
+  background-color: lightseagreen;
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+
+ye css code h 
+
+server side rendering and client side renderring ...next topic
+
+client side mtlb user 
+server side mtlb hum
+
+next.js me default me server side rendering hota h 
+
+mtlb jab hum useState use krte h tab hume useState import krne k saath 
+
+"use client" sabse upr dalna padta h 
+ toh ab client side b daalte h
+
+
+
+
+

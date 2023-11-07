@@ -1,0 +1,15 @@
+video 26 - shouldComponentUpdate
+
+isme hum cond laga skte h k konsa state kab update krna h 
+
+fir se render hone se stop b kr skte h shouldComponentUpdate use kr k 
+
+agar humko update krana h shouldComponentUpdate use kr k ..toh is method me last me 
+
+return true --l ikhna padta h 
+
+
+hum isme API b call krwa skte h lekin wo agar condtiotnal hoga toh
+
+ye updating phase me chlta h 
+

@@ -1,0 +1,22 @@
+video -  #28 Hooks
+
+functional componenet me life cycle methods use krne k liye hooks use krte h
+
+class component k features jaise k  - lifecycle, state,pure component ye use k liye k 
+hooks use krte h 
+
+useState ek hook hota h ...jo b method use se start hota h wo hook hota h 
+
+import './App.css';
+import React,{useState}from 'react'
+function App() {
+  const [data,setData]=useState("Anil")
+  return (
+    <div className="App">
+      <h1>Hooks in React {data}</h1>
+      <button onClick={()=>setData("Peter")}>Update State</button>
+    </div>
+  );
+}
+
+export default App;
